@@ -15,4 +15,4 @@ Then, you use the code in:
 - index.js
 to create the skill behavior as Lambda funtion in https://console.aws.amazon.com
 
-This project is documented in my blog http://youness.net
+This project is documented in my blog http://youness.net/alexa/alexa-skill-example-cars-find-dealers
