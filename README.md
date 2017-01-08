@@ -13,6 +13,6 @@ You need this data to create the Skill in https://developer.amazon.com
 
 Then, you use the code in:
 - index.js
-to create the skill behavior as Lambda funtion in 
+to create the skill behavior as Lambda funtion in https://console.aws.amazon.com
 
 This project is documented in my blog http://youness.net
