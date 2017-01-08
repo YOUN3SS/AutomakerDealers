@@ -125,7 +125,7 @@ You can add more information, like phone number, address, ... Alexa will read it
     else if (city == 'Sheffield')
         dealer = 'Electric Cars';
 
-    var speechOutput = "I find one auto-maker in "
+    var speechOutput = "I find one dealer in "
                         + city
                         +" city."
                         +" It is: "
