@@ -3,33 +3,14 @@ Dealers database
 Here you can add all information like address, phone number...etc.
 */
 
-var dealer_name = [
-    {
-        "London": [
-            "New Cars"
-        ]
-},
-    {
-        "Birmingham": [
-            "Sport Vehicles"
-        ]
-},
-    {
-        "Leeds": [
-            "Auto Showroom"
-        ]
-},
-    {
-        "Glasgow": [
-            "Good auctions"
-        ]
-},
-    {
-        "Sheffield": [
-            "Electric Cars"
-        ]
-},
-
+/* dealers database 
+var dealer_db = [
+    {cityname: 'London', dealer: 'New Cars'},
+    {cityname: 'Birmingham', dealer: 'Sport Vehicles'},
+    {cityname: 'Leeds', dealer: 'Auto Showroom'},
+    {cityname: 'Glasgow', dealer: 'Good auctions'},
+    {cityname: 'Sheffield', dealer: 'Electric Cars'}
+]; */ 
 
 exports.handler = function (event, context) {
     try {
@@ -133,12 +114,25 @@ function getWelcomeResponse(callback) {
 function FindAutomotiveDealerWithCity(intent, session, callback) {
     var sessionAttributes = {};
     var reprompt = session.attributes.speechOutput;
-    var UserCity = intent.slots.City.value;
-    var speechOutput = "I find one automaker in the city:"
-                        + UserCity
+    var city = intent.slots.City.value;
+
+/* dealer database (ugly but... it is the quickest way) */
+    if (city == 'London')
+        dealer = 'New Cars'
+    else if (city == 'Birmingham')
+        dealer = 'Sport Vehicles'
+    else if (city == 'Birmingham')
+        dealer = 'Auto Showroom'
+    else if (city == 'Glasgow')
+        dealer = 'Good auctions'
+    else if (city == 'Sheffield')
+        dealer = 'Electric Cars'
+
+    var speechOutput = "I find one automaker in "
+                        + city
                         + "..."
                         +"It is:"
-                        + "????";
+                        + dealer;
     callback(session.attributes,
         buildSpeechletResponse(CARD_TITLE, speechOutput, reprompt, true));
 }
