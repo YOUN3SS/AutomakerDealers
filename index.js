@@ -1,16 +1,11 @@
-/*
-Dealers database
-Here you can add all information like address, phone number...etc.
-*/
+/* Automaker Dealer Finder
+Done by : Youness (Youness.net)
+Is is for demo purpose only, no copyright, no restrictions, no responsability, no warranty.
+Do whatever you want with it, mentionning the author is appreciated
 
-/* dealers database 
-var dealer_db = [
-    {cityname: 'London', dealer: 'New Cars'},
-    {cityname: 'Birmingham', dealer: 'Sport Vehicles'},
-    {cityname: 'Leeds', dealer: 'Auto Showroom'},
-    {cityname: 'Glasgow', dealer: 'Good auctions'},
-    {cityname: 'Sheffield', dealer: 'Electric Cars'}
-]; */ 
+The code is based on Amazon examples:
+https://github.com/amzn/alexa-skills-kit-js
+*/
 
 exports.handler = function (event, context) {
     try {
@@ -116,7 +111,9 @@ function FindAutomotiveDealerWithCity(intent, session, callback) {
     var reprompt = session.attributes.speechOutput;
     var city = intent.slots.City.value;
 
-/* dealer database (ugly but... it is the quickest way) */
+/* dealer database (ugly but... it is the quickest way)
+You can add more information, like phone number, address, ... Alexa will read it
+*/
     if (city == 'London')
         dealer = 'New Cars'
     else if (city == 'Birmingham')
@@ -126,12 +123,12 @@ function FindAutomotiveDealerWithCity(intent, session, callback) {
     else if (city == 'Glasgow')
         dealer = 'Good auctions'
     else if (city == 'Sheffield')
-        dealer = 'Electric Cars'
+        dealer = 'Electric Cars';
 
-    var speechOutput = "I find one automaker in "
+    var speechOutput = "I find one auto-maker in "
                         + city
-                        + "..."
-                        +"It is:"
+                        +" city."
+                        +" It is: "
                         + dealer;
     callback(session.attributes,
         buildSpeechletResponse(CARD_TITLE, speechOutput, reprompt, true));
