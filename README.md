@@ -11,6 +11,8 @@ Here is the list of data:
 
 You need this data to create the Skill in https://developer.amazon.com
 
-Then, you use the code in index.js to create the skill behavior as Lambda funtion in 
+Then, you use the code in:
+- index.js
+to create the skill behavior as Lambda funtion in 
 
 This project is documented in my blog http://youness.net
